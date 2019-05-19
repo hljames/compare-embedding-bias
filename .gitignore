@@ -1,0 +1,3 @@
+embeddings/
+*.pyc
+.DS_Store
