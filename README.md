@@ -5,6 +5,11 @@ https://colab.research.google.com/drive/1WNdOOmEenxtDhG-PRJ3K79HXBzZ-Nt-Q
 
 The WEAT statistic was developed by Caliskan et al. https://purehost.bath.ac.uk/ws/portalfiles/portal/168480066/CaliskanEtAl_authors_full.pdf
 
+![Compare biases in Google News vs Reddit](images/google_news_reddit.png)
+
+![Compare biases over time](images/inst_weap_science_art.png)
+
+
 # Requirements:
 - Python 3 
 - Gensim 
