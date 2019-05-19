@@ -63,10 +63,6 @@ def run_test(config, embedding):
                 format(word_list_name, word_list))
                 print('All word groups must contain at least two words')
                 return None, None
-            else:
-                print('Number of words from {} in word embeddings: {}'.\
-                format(word_list_name,len(word_list_filtered)))
-
     return get_bias_scores_mean_err(word_pairs,embedding)
 
 def load_embedding(embed_path):
@@ -110,11 +106,7 @@ if __name__ == '__main__':
             print('loading time series embeddings...')
             for time, embed_path in e.items():
                 results[e_name][time] = {}
-                # try:
                 embedding = load_embedding(embed_path)
-                # except:
-                    # print('could not load embedding {}'.format(e_name))
-                    # continue;
                 for name_of_test, test_config in config['tests'].items():
                     print(name_of_test)
                     mean, err = run_test(test_config, embedding)
