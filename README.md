@@ -36,8 +36,7 @@ HistWords: https://nlp.stanford.edu/projects/histwords/
 Example:
 
 ```
-python sgns-to-txt.py embeddings/sgns-fiction`
-
+python sgns-to-txt.py embeddings/sgns-fiction
 ```
 
 # Example Commands
