@@ -82,14 +82,14 @@ def load_embedding(embed_path):
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
-        print('usage: python weat.py config_file_name results_file=results.json')
+        print('usage: python weat.py config.json results_file=config_results.json')
         sys.exit(1)
 
     fname = sys.argv[1]
     if len(sys.argv) > 2:
         results_file = sys.argv[2]
     else:
-        results_file = 'results.json'
+        results_file = 'results_' + fname
     results = {}
     config = read_config.read_json_config(fname)
     for e_name, e in config['embeddings'].items():
@@ -103,6 +103,7 @@ if __name__ == '__main__':
                 continue;
             for name_of_test, test_config in config['tests'].items():
                 mean, err = run_test(test_config, embedding)
+                print('mean: {} err: {}'.format(mean, err))
                 if mean is not None:
                     results[e_name][name_of_test] = (round(mean, 4), round(err,4))
         else:
@@ -118,7 +119,7 @@ if __name__ == '__main__':
                     print(name_of_test)
                     mean, err = run_test(test_config, embedding)
                     print('mean: {} err: {}'.format(mean, err))
-                    if mean is not None and not math.isnan(mean):
+                    if mean is not None:
                         results[e_name][time][name_of_test] = (round(mean, 4), round(err,4))
         with open(results_file, 'wb') as outfile:
             json.dump(results, outfile)
