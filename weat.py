@@ -34,12 +34,9 @@ def get_bias_scores_mean_err(word_pairs,embedding):
     Caculate the mean WEAT statistic and standard error using a permutation test
     on the sets of words (defaults to 100 samples)
     """
-    word_pairs['X'] = list(filter(lambda x: np.count_nonzero(embedding[x]) > 0, word_pairs['X']))
-    word_pairs['Y'] = list(filter(lambda x: np.count_nonzero(embedding[x]) > 0, word_pairs['Y']))
-    word_pairs['A'] = list(filter(lambda x: np.count_nonzero(embedding[x]) > 0, word_pairs['A']))
-    word_pairs['B'] = list(filter(lambda x: np.count_nonzero(embedding[x]) > 0, word_pairs['B']))
-    subset_size_target = max((min(len(word_pairs['X']),len(word_pairs['Y'])))//2,1)
-    subset_size_attr = max((min(len(word_pairs['A']),len(word_pairs['B'])))//2,1)
+    # divide smaller word_list by two
+    subset_size_target = min(len(word_pairs['X']),len(word_pairs['Y']))//2
+    subset_size_attr = min(len(word_pairs['A']),len(word_pairs['B']))//2
     bias_scores = []
     for i in range(100):
         sX = np.random.choice(word_pairs['X'],subset_size_target,replace=False)
