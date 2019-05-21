@@ -5,8 +5,7 @@ Convert pretrained histwords embeddings to be compatible with gensim
 import sys
 import glob, os
 import numpy as np
-import cPickle as pickle
-
+import pickle
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
@@ -57,4 +56,4 @@ if __name__ == '__main__':
             with open(output_txt, 'w') as fp:
                 fp.write(str(vocab_size) + ' ' + str(vector_dim) + '\n')
                 for word in vocab:
-                    fp.write((word + ' ' + ' '.join(map(str, (vectors[word_indicies[word], :]))) + '\n').encode('utf-8'))
+                    fp.write((word + ' ' + ' '.join(map(str, (vectors[word_indicies[word], :]))) + '\n'))
