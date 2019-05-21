@@ -21,6 +21,18 @@ The WEAT statistic was developed by Caliskan et al. https://purehost.bath.ac.uk/
 Install with:
 
   $ pip install -r requirements.txt
+  
+## Quick Start
+
+### Replicate Caliskan Results
+
+1. Download the Word2Vec Google News pretrained embeddings https://code.google.com/archive/p/word2vec/
+
+2. Create directory `embeddings`, unzip the pretrained embeddings inside the directory
+
+```
+python run_tests.py embeddings/GoogleNews-vectors-negative300.bin
+```
 
 ## Embeddings
 
