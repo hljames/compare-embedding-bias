@@ -26,9 +26,9 @@ Install with:
 
 ### Replicate Caliskan Results
 
-1. Download the Word2Vec Google News pretrained embeddings https://code.google.com/archive/p/word2vec/
+1. Download the the word embedding used in the original research paper: Word2Vec Google News pretrained embeddings https://code.google.com/archive/p/word2vec/
 
-2. Create directory `embeddings`, unzip the pretrained embeddings inside the directory
+2. Place the embedding inside a directory (EX: `embeddings`)
 
 ```
 python run_tests.py embeddings/GoogleNews-vectors-negative300.bin
